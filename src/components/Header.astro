@@ -1,13 +1,7 @@
 ---
-import "../styles/global.css"
+import "../styles/global.css";
+import HeaderComp from "./HeaderComp.jsx";
+
 ---
 
-<header class="bg-white h-20 w-full shadow-xl">
-	<div class="w-full h-full flex items-center">
-		<div class="font-bold">
-			<a href="/">
-				<h1>DialUp</h1>
-			</a>
-		</div>
-	</div>
-</header>
+<HeaderComp client:idle/>
