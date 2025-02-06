@@ -16,7 +16,7 @@ export default function HeaderComp() {
 		setIsLoggedIn(false);
 	};
 
-	return (<header className="bg-white h-20 w-full shadow-xl">
+	return (<header className="bg-white h-20 w-full shadow-xl z-10">
 		<div className="w-full h-full flex items-center justify-between px-10">
 			<div className="h-full">
 				<a href="/" className="w-full h-full">

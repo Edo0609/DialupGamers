@@ -1,0 +1,113 @@
+[
+	{
+	  "id": 1,
+	  "title": "Full-Stack Web Development",
+	  "date_created": "2024-01-10",
+	  "price": 79.99,
+	  "image_url": "https://www.revenueriver.co/hubfs/fullstack.jpeg",
+	  "video_url": "https://example.com/fullstack.mp4",
+	  "description": "Learn to build web applications from scratch using JavaScript, React, Node.js, and databases.",
+	  "tags": ["web development", "JavaScript", "full-stack"],
+	  "likes": 87
+	},
+	{
+	  "id": 2,
+	  "title": "Introduction to Databases",
+	  "date_created": "2024-01-15",
+	  "price": 49.99,
+	  "image_url": "https://www.kdnuggets.com/wp-content/uploads/c_introduction_databases_data_science_4.jpg",
+	  "video_url": "https://example.com/databases.mp4",
+	  "description": "A beginner-friendly guide to relational and NoSQL databases, covering SQL, MySQL, and MongoDB.",
+	  "tags": ["databases", "SQL", "NoSQL"],
+	  "likes": 62
+	},
+	{
+	  "id": 3,
+	  "title": "Python for Data Science",
+	  "date_created": "2024-02-01",
+	  "price": 89.99,
+	  "image_url": "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230318230239/Python-Data-Science-Tutorial.jpg",
+	  "video_url": "https://example.com/datascience.mp4",
+	  "description": "Master Python for data analysis, visualization, and machine learning using Pandas, NumPy, and Scikit-learn.",
+	  "tags": ["data science", "Python", "machine learning"],
+	  "likes": 94
+	},
+	{
+	  "id": 4,
+	  "title": "Cybersecurity Fundamentals",
+	  "date_created": "2024-02-10",
+	  "price": 59.99,
+	  "image_url": "https://www.aim.com.au/sites/default/files/00960_AIM_Screens_CybersecurityFundamentals_640x360.jpg",
+	  "video_url": "https://example.com/cybersecurity.mp4",
+	  "description": "Understand the basics of cybersecurity, ethical hacking, and network security.",
+	  "tags": ["cybersecurity", "network security", "ethical hacking"],
+	  "likes": 53
+	},
+	{
+	  "id": 5,
+	  "title": "Building Mobile Apps with Flutter",
+	  "date_created": "2024-02-20",
+	  "price": 74.99,
+	  "image_url": "https://miro.medium.com/v2/resize:fit:1400/1*-mOO444aE0ysjnJofbxBkQ.png",
+	  "video_url": "https://example.com/flutter.mp4",
+	  "description": "Learn how to create beautiful cross-platform mobile apps with Flutter and Dart.",
+	  "tags": ["mobile development", "Flutter", "Dart"],
+	  "likes": 78
+	},
+	{
+	  "id": 6,
+	  "title": "AI and Machine Learning Essentials",
+	  "date_created": "2024-03-05",
+	  "price": 99.99,
+	  "image_url": "https://b3549173.smushcdn.com/3549173/wp-content/uploads/2024/02/AI_Components.jpg?lossy=2&strip=1&webp=1",
+	  "video_url": "https://example.com/ai.mp4",
+	  "description": "An introduction to artificial intelligence and machine learning, covering algorithms and real-world applications.",
+	  "tags": ["AI", "machine learning", "deep learning"],
+	  "likes": 89
+	},
+	{
+	  "id": 7,
+	  "title": "DevOps and Cloud Computing",
+	  "date_created": "2024-03-15",
+	  "price": 89.99,
+	  "image_url": "https://media.licdn.com/dms/image/v2/C4D12AQE39vlgcO7LJw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1634011708493?e=2147483647&v=beta&t=bzJfgxQ4ierAN0F2yOwNhQ2Njm1AQ4-w8gN7IML5fxk",
+	  "video_url": "https://example.com/devops.mp4",
+	  "description": "Learn DevOps principles, cloud computing services (AWS, Azure), and CI/CD pipelines.",
+	  "tags": ["DevOps", "cloud computing", "CI/CD"],
+	  "likes": 71
+	},
+	{
+	  "id": 8,
+	  "title": "JavaScript: From Beginner to Expert",
+	  "date_created": "2024-03-25",
+	  "price": 69.99,
+	  "image_url": "https://img-c.udemycdn.com/course/750x422/4636714_ea0d_3.jpg",
+	  "video_url": "https://example.com/javascript.mp4",
+	  "description": "A complete JavaScript guide covering ES6+, asynchronous programming, and modern frameworks.",
+	  "tags": ["JavaScript", "web development", "front-end"],
+	  "likes": 58
+	},
+	{
+	  "id": 9,
+	  "title": "React and Next.js Masterclass",
+	  "date_created": "2024-04-01",
+	  "price": 79.99,
+	  "image_url": "https://img-c.udemycdn.com/course/750x422/3873464_403c_3.jpg",
+	  "video_url": "https://example.com/react.mp4",
+	  "description": "Deep dive into React.js, Next.js, and building highly performant web applications.",
+	  "tags": ["React", "Next.js", "web development"],
+	  "likes": 85
+	},
+	{
+	  "id": 10,
+	  "title": "Backend Development with Node.js",
+	  "date_created": "2024-04-10",
+	  "price": 84.99,
+	  "image_url": "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20220517005132/Why-to-Use-NodeJS-for-Backend-Development.jpg",
+	  "video_url": "https://example.com/node.mp4",
+	  "description": "Learn how to build scalable server-side applications using Node.js and Express.",
+	  "tags": ["backend development", "Node.js", "Express"],
+	  "likes": 66
+	}
+  ]
+  
