@@ -14,7 +14,8 @@ export default function HeaderComp() {
 	const handleLogout = () => {
 		localStorage.removeItem("LoggedUser");
 		setIsLoggedIn(false);
-	};
+		window.dispatchEvent(new Event("userLoggedOut"));
+	  };
 
 	return (<header className="bg-white h-20 w-full shadow-xl z-10">
 		<div className="w-full h-full flex items-center justify-between px-10">

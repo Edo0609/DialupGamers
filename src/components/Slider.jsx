@@ -5,7 +5,6 @@ export default function Slider({ courses }) {
 	const topCourses = [...courses]
 		.sort((a, b) => b.likes - a.likes)
 		.slice(0, 5);
-	console.log(courses);
 
 	const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -25,7 +24,7 @@ export default function Slider({ courses }) {
 			>
 				{topCourses.map((course) => (
 					<div key={course.id} className="min-w-full flex-shrink-0 p-4">
-							<a href={`courses/${course.id}`}>
+							<a href={`course/${course.id}`}>
 							<div className="bg-white rounded-lg shadow-lg p-4">
 								<img
 									src={course.image_url}

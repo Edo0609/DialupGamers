@@ -1,12 +1,10 @@
 ---
 import Header from "../components/Header.astro"
 import "../styles/global.css"
-import fetchFireBase from "../scripts/fetchFireBase.ts"
 import HeroImage from "../assets/hero.gif"
 import Slider from "../components/Slider.jsx"
-import Filter from "../components/Filter.jsx"
-
-const courses = await fetchFireBase("https://dialup-8ed75-default-rtdb.europe-west1.firebasedatabase.app/.json");
+import Cards from "../components/Cards.jsx"
+import courses from "../data/courses.ts"
 ---
 
 <!doctype html>
@@ -29,11 +27,11 @@ const courses = await fetchFireBase("https://dialup-8ed75-default-rtdb.europe-we
 				</div>
 			</div>
 			<div class="w-full h-auto">
-				<p class="text-4xl m-4 mx-10 font-bold">Cursos destacados</p>
+				<p class="text-4xl m-4 mx-10 font-bold">Trending Courses</p>
 				<Slider courses={courses} client:load/>
-				<p class="mt-15 text-center text-4xl font-bold">Cursos</p>
+				<p class="mt-15 text-center text-4xl font-bold">Courses</p>
 				<div class="flex justify-end">
-					<Filter courses={courses} client:load/>
+					<Cards courses={courses} client:load/>
 				</div>
 			</div>
 		</main>
