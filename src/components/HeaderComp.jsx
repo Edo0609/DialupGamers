@@ -1,5 +1,7 @@
 import "../styles/global.css";
 import logo from "../assets/ComputerIcon.png";
+import Search from "./Search.jsx";
+import courses from "../data/courses.ts";
 
 import React, { useState, useEffect } from 'react';
 
@@ -36,6 +38,7 @@ export default function HeaderComp() {
 			</div>
 			{isLoggedIn ? (
 				<div className="h-full flex items-center">
+					<Search courses={courses}/>
 					<a href="/login" className="m-1">
 						<div className="flex items-center p-2 px-5 border-2 bg-teal-100 border-teal-400 rounded-lg">
 							<h1 className="text-xl font-bold h-full">My courses</h1>
@@ -49,6 +52,7 @@ export default function HeaderComp() {
 				</div>
 			) : (
 				<div className="h-full flex items-center">
+					<Search courses={courses}/>
 					<a href="/login" className="m-1">
 						<div className="flex items-center p-2 px-5 border-2 bg-teal-100 border-teal-400 rounded-lg">
 							<h1 className="text-xl font-bold h-full">Login</h1>

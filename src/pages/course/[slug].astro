@@ -7,13 +7,12 @@ import Like from "../../components/Like.jsx";
 const { slug } = Astro.params;
 
 export async function getStaticPaths() {
-    return courses.map((course: { id: any; }) => ({
-        params: { slug: course.id },
-    }));
-
+  return courses.map((course: { id: any }) => ({
+    params: { slug: course.id },
+  }));
 }
 
-const course = courses.find((course: { id: any; }) => course.id == slug);
+const course = courses.find((course: { id: any }) => course.id == slug);
 ---
 
 <!doctype html>
@@ -28,43 +27,33 @@ const course = courses.find((course: { id: any; }) => course.id == slug);
   <body>
     <Header />
     <main class="max-w-5xl mx-auto p-4">
-      <!-- Course Title -->
       <h1 class="text-4xl font-bold mb-4">{course.title}</h1>
-      
-      <!-- Date Created -->
       <p class="text-gray-500 mb-2">Created on: {course.date_created}</p>
-      
-      <!-- Price -->
       <p class="text-xl text-orange-500 font-bold mb-4">${course.price}</p>
-      
-      <!-- Course Image -->
       <img
         src={course.image_url}
         alt={course.title}
         class="w-full h-auto mb-4 rounded-lg object-cover"
       />
-      
-      <!-- Video Player Component -->
       <div class="mb-4">
-        <VideoPlayer course={course} client:load/>
+        <VideoPlayer course={course} client:load />
       </div>
-      
-      <!-- Course Description -->
       <p class="mb-4">{course.description}</p>
-      
-      <!-- Tags -->
       <div class="mb-4">
         <span class="font-bold">Tags: </span>
-        {course.tags.map((tag) => (
-          <span key={tag} class="inline-block bg-gray-200 text-gray-700 px-2 py-1 rounded mr-2">
-            {tag}
-          </span>
-        ))}
+        {
+          course.tags.map((tag) => (
+            <span
+              key={tag}
+              class="inline-block bg-gray-200 text-gray-700 px-2 py-1 rounded mr-2"
+            >
+              {tag}
+            </span>
+          ))
+        }
       </div>
-      
-      <!-- Likes (Custom Like Component) -->
       <div>
-        <Like course={course} client:load/>
+        <Like course={course} client:load />
       </div>
     </main>
   </body>
