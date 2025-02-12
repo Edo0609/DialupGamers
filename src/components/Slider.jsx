@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Slider({ courses }) {
 	const topCourses = [...courses]
@@ -15,6 +15,30 @@ export default function Slider({ courses }) {
 	const nextSlide = () => {
 		setCurrentIndex((prev) => (prev === topCourses.length - 1 ? 0 : prev + 1));
 	};
+
+	const [updatedLikes, setUpdatedLikes] = useState({});
+	  useEffect(() => {
+		const fetchLikes = async () => {
+		  const newLikes = {};
+		  for (const course of courses) {
+			try {
+			  const id = course.id - 1;
+			  const res = await fetch(
+				`https://dialup-8ed75-default-rtdb.europe-west1.firebasedatabase.app/${id}/likes.json`
+			  );
+			  if (res.ok) {
+				const data = await res.json();
+				newLikes[course.id] = data || 0;
+			  }
+			} catch (error) {
+			  console.error("Error fetching likes:", error);
+			}
+		  }
+		  setUpdatedLikes(newLikes);
+		};
+	
+		fetchLikes();
+	  }, [courses]);
 
 	return (
 		<div className="relative w-full max-w-4xl mx-auto overflow-hidden">
@@ -34,7 +58,7 @@ export default function Slider({ courses }) {
 								<h2 className="text-xl font-bold mt-2">{course.title}</h2>
 								<p className="text-gray-600">{course.description}...</p>
 								<p className="text-orange-500 font-bold mt-2">${course.price}</p>
-								<p className="text-teal-500 mt-1">{course.likes} Likes</p>
+								<p className="text-teal-500 mt-1">{updatedLikes[course.id] ?? course.likes} Likes</p>
 							</div>
 					</a>
 						</div>

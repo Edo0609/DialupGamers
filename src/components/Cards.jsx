@@ -25,6 +25,30 @@ export default function Cards({ courses }) {
     };
   }, []);
 
+  const [updatedLikes, setUpdatedLikes] = useState({});
+  useEffect(() => {
+    const fetchLikes = async () => {
+      const newLikes = {};
+      for (const course of courses) {
+        try {
+          const id = course.id - 1;
+          const res = await fetch(
+            `https://dialup-8ed75-default-rtdb.europe-west1.firebasedatabase.app/${id}/likes.json`
+          );
+          if (res.ok) {
+            const data = await res.json();
+            newLikes[course.id] = data || 0;
+          }
+        } catch (error) {
+          console.error("Error fetching likes:", error);
+        }
+      }
+      setUpdatedLikes(newLikes);
+    };
+
+    fetchLikes();
+  }, [courses]);
+
   const handleBuyCourse = (courseId) => {
     if (!loggedUser) return;
 
@@ -68,6 +92,7 @@ export default function Cards({ courses }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredCourses.map((course) => {
           const isBought = loggedUser?.boughtCourses.includes(course.id);
+          const likes = updatedLikes[course.id] || course.likes;
 
           return (
             <a
@@ -89,7 +114,7 @@ export default function Cards({ courses }) {
                   ${course.price}
                 </p>
                 <p className="text-teal-500 text-sm mt-1">
-                  {course.likes} Likes
+                  {likes} Likes
                 </p>
                 <div className="mt-4">
                   {loggedUser ? (
