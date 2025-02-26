@@ -5,9 +5,6 @@ import VideoPlayer from "../../components/VideoPlayer.jsx";
 import Like from "../../components/Like.jsx";
 import React, { useState, useEffect } from "react";
 import { currencyRates } from "../../data/currencyRates";
-
-// Price component that reads the selected currency from localStorage
-// and converts the price using currencyRates.
 function Price({ price }) {
   const [currency, setCurrency] = useState("USD");
 
@@ -60,7 +57,7 @@ const course = courses.find((course: { id: any }) => course.id == slug);
       <h1 class="text-4xl font-bold mb-4">{course.title}</h1>
       <p class="text-gray-500 mb-2">Created on: {course.date_created}</p>
       <p class="text-xl text-orange-500 font-bold mb-4">
-        <Price price={course.price} client:load />
+        <Price price={course.price} />
       </p>
       <img
         src={course.image_url}
