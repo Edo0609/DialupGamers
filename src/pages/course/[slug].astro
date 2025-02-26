@@ -7,15 +7,12 @@ import Like from "../../components/Like.jsx";
 const { slug } = Astro.params;
 
 export async function getStaticPaths() {
-  return {
-    paths: courses.map((course) => ({
-      params: { slug: course.id },
-    })),
-    fallback: false,
-  };
+  return courses.map((course: { id: any }) => ({
+    params: { slug: course.id },
+  }));
 }
 
-const course = courses.find((course) => course.id == slug);
+const course = courses.find((course: { id: any }) => course.id == slug);
 ---
 
 <!doctype html>
