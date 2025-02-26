@@ -59,7 +59,6 @@ export default function HeaderComp() {
 					</select>
 					{isLoggedIn ? (
 						<div className="h-full flex items-center">
-							<Search courses={courses} />
 							<a href="/my-courses" className="m-1">
 								<div className="flex items-center p-2 px-5 border-2 bg-teal-100 border-teal-400 rounded-lg">
 									<h1 className="text-xl font-bold h-full">My courses</h1>
@@ -73,7 +72,6 @@ export default function HeaderComp() {
 						</div>
 					) : (
 						<div className="h-full flex items-center">
-							<Search courses={courses} />
 							<a href="/login" className="m-1">
 								<div className="flex items-center p-2 px-5 border-2 bg-teal-100 border-teal-400 rounded-lg">
 									<h1 className="text-xl font-bold h-full">Login</h1>
