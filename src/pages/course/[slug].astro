@@ -3,6 +3,7 @@ import courses from "../../data/courses.ts";
 import Header from "../../components/Header.astro";
 import VideoPlayer from "../../components/VideoPlayer.jsx";
 import Like from "../../components/Like.jsx";
+import Price from "../../components/Price.jsx"; // <-- Import the Price component
 
 const { slug } = Astro.params;
 
@@ -29,7 +30,9 @@ const course = courses.find((course: { id: any }) => course.id == slug);
     <main class="max-w-5xl mx-auto p-4">
       <h1 class="text-4xl font-bold mb-4">{course.title}</h1>
       <p class="text-gray-500 mb-2">Created on: {course.date_created}</p>
-      <p class="text-xl text-orange-500 font-bold mb-4">${course.price}</p>
+      <p class="text-xl text-orange-500 font-bold mb-4">
+        <Price price={course.price} client:load />
+      </p>
       <img
         src={course.image_url}
         alt={course.title}
