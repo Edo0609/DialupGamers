@@ -20,11 +20,6 @@ export default function MyCourses() {
       );
       setMyCourses(filtered);
     }
-
-    window.addEventListener("currencyChanged", handleCurrencyChanged);
-    return () => {
-      window.removeEventListener("currencyChanged", handleCurrencyChanged);
-    };
   }, []);
 
   const convertPrice = (price) => {
