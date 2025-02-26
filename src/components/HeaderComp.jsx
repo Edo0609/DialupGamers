@@ -2,19 +2,16 @@ import "../styles/global.css";
 import logo from "../assets/ComputerIcon.png";
 import Search from "./Search.jsx";
 import courses from "../data/courses.ts";
+
 import React, { useState, useEffect } from 'react';
 
 export default function HeaderComp() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currency, setCurrency] = useState("USD");
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    const user = localStorage.getItem('LoggedUser');
-    setIsLoggedIn(!!user);
-
-    const savedCurrency = localStorage.getItem("currency") || "USD";
-    setCurrency(savedCurrency);
-  }, []);
+	useEffect(() => {
+		const user = localStorage.getItem('LoggedUser');
+		setIsLoggedIn(!!user);
+	}, []);
 
 	const handleLogout = () => {
 		localStorage.removeItem("LoggedUser");
@@ -72,3 +69,4 @@ export default function HeaderComp() {
 	</header>
 	);
 }
+
