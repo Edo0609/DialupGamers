@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import courses from "../data/courses.ts";
-import { currencyRates } from "../data/currencyRates"
+import { currencyRates } from "../data/currencyRates";
 
 export default function MyCourses() {
   const [loggedUser, setLoggedUser] = useState(null);
@@ -14,12 +14,23 @@ export default function MyCourses() {
     const savedCurrency = localStorage.getItem("currency") || "USD";
     setCurrency(savedCurrency);
 
+    const handleCurrencyChanged = () => {
+      const newCurrency = localStorage.getItem("currency") || "USD";
+      setCurrency(newCurrency);
+    };
+
+    window.addEventListener("currencyChanged", handleCurrencyChanged);
+
     if (user && user.boughtCourses) {
       const filtered = courses.filter((course) =>
         user.boughtCourses.includes(course.id)
       );
       setMyCourses(filtered);
     }
+
+    return () => {
+      window.removeEventListener("currencyChanged", handleCurrencyChanged);
+    };
   }, []);
 
   const convertPrice = (price) => {
