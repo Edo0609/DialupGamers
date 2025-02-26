@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { currencyRates } from "../data/currency";
+import { currencyRates } from "../data/currencyRates";
 
 export default function Cards({ courses }) {
   const [selectedTag, setSelectedTag] = useState("All");
