@@ -13,6 +13,11 @@ export default function Slider({ courses }) {
 	useEffect(() => {
 		const savedCurrency = localStorage.getItem("currency") || "USD";
 		setCurrency(savedCurrency);
+
+		window.addEventListener("currencyChanged", handleCurrencyChanged);
+		return () => {
+			window.removeEventListener("currencyChanged", handleCurrencyChanged);
+		};
 	}, []);
 
 	const convertPrice = (price) => {
