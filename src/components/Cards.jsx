@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 export default function Cards({ courses }) {
   const [selectedTag, setSelectedTag] = useState("All");
   const tags = ["All", ...new Set(courses.flatMap((course) => course.tags))];
+  const [currency, setCurrency] = useState("USD");
 
   const filteredCourses =
     selectedTag === "All"
@@ -17,13 +18,28 @@ export default function Cards({ courses }) {
       const user = JSON.parse(localStorage.getItem("LoggedUser"));
       setLoggedUser(user);
     };
+    const savedCurrency = localStorage.getItem("currency") || "USD";
+    setCurrency(savedCurrency);
+
+    const handleCurrencyChanged = () => {
+      const newCurrency = localStorage.getItem("currency") || "USD";
+      setCurrency(newCurrency);
+    };
+
+    window.addEventListener("currencyChanged", handleCurrencyChanged);
 
     updateUser();
     window.addEventListener("userLoggedOut", updateUser);
     return () => {
       window.removeEventListener("userLoggedOut", updateUser);
+      window.removeEventListener("currencyChanged", handleCurrencyChanged);
     };
   }, []);
+
+  const convertPrice = (price) => {
+    const rate = currencyRates[currency] || 1;
+    return (price * rate).toFixed(2);
+  };
 
   const [updatedLikes, setUpdatedLikes] = useState({});
   useEffect(() => {
@@ -111,7 +127,7 @@ export default function Cards({ courses }) {
                   {course.description.slice(0, 100)}...
                 </p>
                 <p className="text-orange-500 font-bold mt-2">
-                  ${course.price}
+                  {currency} {convertPrice(course.price)}
                 </p>
                 <p className="text-teal-500 text-sm mt-1">
                   {likes} Likes
