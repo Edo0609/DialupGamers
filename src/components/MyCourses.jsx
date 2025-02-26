@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import courses from "../data/courses.ts";
+import { currencyRates } from "../data/currencyRates"
 
 export default function MyCourses() {
   const [loggedUser, setLoggedUser] = useState(null);
   const [myCourses, setMyCourses] = useState([]);
+  const [currency, setCurrency] = useState("USD");
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("LoggedUser"));
     setLoggedUser(user);
+
+    const savedCurrency = localStorage.getItem("currency") || "USD";
+    setCurrency(savedCurrency);
 
     if (user && user.boughtCourses) {
       const filtered = courses.filter((course) =>
@@ -16,6 +21,11 @@ export default function MyCourses() {
       setMyCourses(filtered);
     }
   }, []);
+
+  const convertPrice = (price) => {
+    const rate = currencyRates[currency] || 1;
+    return (price * rate).toFixed(2);
+  };
 
   if (!loggedUser) {
     return (
@@ -52,7 +62,9 @@ export default function MyCourses() {
             <p className="text-gray-600 text-sm">
               {course.description.slice(0, 100)}...
             </p>
-            <p className="text-orange-500 font-bold mt-2">${course.price}</p>
+            <p className="text-orange-500 font-bold mt-2">
+              {currency} {convertPrice(course.price)}
+            </p>
           </a>
         ))}
       </div>
